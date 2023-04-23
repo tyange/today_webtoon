@@ -121,7 +121,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     itemBuilder: (context, index) {
                       var episode = snapshot.data![index];
 
-                      return Episode(episode: snapshot.data![index]);
+                      return Episode(
+                          episode: snapshot.data![index], webtoonId: widget.id);
                     },
                   ),
                 );
