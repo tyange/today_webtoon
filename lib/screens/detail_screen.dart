@@ -3,6 +3,8 @@ import 'package:today_webtoon/models/webtoon_detail_model.dart';
 import 'package:today_webtoon/models/webtoon_episode_model.dart';
 import 'package:today_webtoon/services/api_services.dart';
 
+import '../widgets/episode_widget.dart';
+
 class DetailScreen extends StatefulWidget {
   final String title, thumb, id;
 
@@ -119,33 +121,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     itemBuilder: (context, index) {
                       var episode = snapshot.data![index];
 
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.green.shade300,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 20,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                snapshot.data![index].title,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              const Icon(Icons.chevron_right_rounded,
-                                  color: Colors.white),
-                            ],
-                          ),
-                        ),
-                      );
+                      return Episode(episode: snapshot.data![index]);
                     },
                   ),
                 );
